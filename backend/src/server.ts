@@ -1,11 +1,11 @@
-import express, { Application } from 'express';
+// Load environment variables FIRST - before any other imports
 import dotenv from 'dotenv';
+dotenv.config();
+
+import express, { Application } from 'express';
 import { corsMiddleware } from './middleware/cors.middleware';
 import { errorHandler, notFoundHandler } from './middleware/error.middleware';
 import chatRoutes from './routes/chat.routes';
-
-// Load environment variables
-dotenv.config();
 
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
