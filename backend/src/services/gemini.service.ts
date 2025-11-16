@@ -18,9 +18,11 @@ export class GeminiService {
       this.model = {} as GenerativeModel;
     } else {
       this.genAI = new GoogleGenerativeAI(apiKey);
-      this.model = this.genAI.getGenerativeModel({ model: 'gemini-pro' });
+      // Using gemini-1.5-flash for faster responses
+      // Alternative: 'gemini-1.5-pro' for more complex tasks
+      this.model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
       this.apiKeyConfigured = true;
-      console.log('✓ Gemini API initialized successfully');
+      console.log('✓ Gemini API initialized successfully (model: gemini-1.5-flash)');
     }
   }
 
